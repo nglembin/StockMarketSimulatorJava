@@ -11,24 +11,24 @@ public class SymulacjaEtap1 {
         Stock pms = new Stock("PMS", "ProfesorMiotkSzef", 9999.99); // :D
 
         // robimy nowy portfel z gotówką na start
-        Portfolio portfolio = new Portfolio(100000.0); // mamy 100k żeby poszaleć
+        Portfolio mojPortfelGieldowy = new Portfolio(100000.0); // mamy 100k żeby poszaleć
 
         // dodajemy akcje do portfela
-        portfolio.addStock(btc, 2); // to the moon!
-        portfolio.addStock(eth, 10); // eth
-        portfolio.addStock(pms, 1); // 1 bo to edycja limitowana
+        mojPortfelGieldowy.addStock(btc, 2); // to the moon!
+        mojPortfelGieldowy.addStock(eth, 10); // eth
+        mojPortfelGieldowy.addStock(pms, 1); // 1 bo to edycja limitowana
 
         // liczymy ile są warte nasze akcje
-        double stockValue = portfolio.calculateStockValue();
+        double wartoscAkcji = mojPortfelGieldowy.calculateStockValue();
 
         // liczymy całkowitą wartość portfela (czyli akcje + gotówka)
-        double totalValue = portfolio.calculateTotalValue();
+        double wartoscAkcjiIPortfela = mojPortfelGieldowy.calculateTotalValue();
 
         // wypisujemy stan portfela
         System.out.println("--- Stan Portfela ---");
-        System.out.println("Gotówa: " + portfolio.getCash() + " PLN");
+        System.out.println("Gotówa: " + mojPortfelGieldowy.getCash() + " PLN");
         System.out.println("Posiadanie akcje:");
-        for (Map.Entry<Stock, Integer> entry : portfolio.getStocksInPortfolio().entrySet()) {
+        for (Map.Entry<Stock, Integer> entry : mojPortfelGieldowy.getStocksInPortfolio().entrySet()) {
             Stock s = entry.getKey();
             int quantity = entry.getValue();
             double value = s.getInitialPrice() * quantity;
@@ -38,8 +38,8 @@ public class SymulacjaEtap1 {
         }
 
         // podsumowanie
-        System.out.println("Wartość akcji: " + stockValue + " PLN");
-        System.out.println("Całkowita wartość portfela łącznie z gotówą: " + totalValue + " PLN");
+        System.out.println("Wartość akcji: " + wartoscAkcji + " PLN");
+        System.out.println("Całkowita wartość portfela łącznie z gotówą: " + wartoscAkcjiIPortfela + " PLN");
     }
 }
 
