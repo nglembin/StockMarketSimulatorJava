@@ -170,12 +170,12 @@ public class SymulacjaEtap2 {
                 a.updatePrice();
                 System.out.printf("%s (%s): %.2f PLN\n", a.getSymbol(), a.getName(), a.getCurrentPrice());
             }
-            System.out.printf("Wartość portfela: %.2f PLN\n", portfel.calculateTotalValue());
+            System.out.printf("Wartosc portfela: %.2f PLN\n", portfel.calculateTotalValue());
         }
 
         // finalny raport portfela
         System.out.println("\n--- Finalny stan portfela ---");
-        System.out.printf("Gotówka: %.2f PLN\n", portfel.getCash());
+        System.out.printf("Gotowka: %.2f PLN\n", portfel.getCash());
         for (PortfolioPosition pos : portfel.getPositions().values()) {
             Asset a = pos.asset();
             int q = pos.quantity();
@@ -183,7 +183,7 @@ public class SymulacjaEtap2 {
             System.out.printf("- %s (%s): %d szt. @ %.2f PLN = %.2f PLN\n",
                     a.getSymbol(), a.getName(), q, a.getCurrentPrice(), val);
         }
-        System.out.printf("Wartość aktywów: %.2f PLN\n", portfel.calculateAssetsValue());
-        System.out.printf("Wartość całkowita portfela: %.2f PLN\n", portfel.calculateTotalValue());
+        System.out.printf("Wartosc aktywow: %.2f PLN\n", portfel.calculateAssetsValue());
+        System.out.printf("Wartosc calkowita portfela: %.2f PLN\n", portfel.calculateTotalValue());
     }
 }
