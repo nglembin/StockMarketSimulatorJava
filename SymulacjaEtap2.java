@@ -6,7 +6,6 @@ Nikodem Glembin, s32943 | Etap 2 - Symulacja z dziedziczeniem, polimorfizmem i u
 
 */
 
-Etap 2 – Symulacja z dziedziczeniem, polimorfizmem i updatePrice()
 import java.util.*;
 
 public class SymulacjaEtap2 {
