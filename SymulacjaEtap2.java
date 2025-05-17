@@ -94,7 +94,7 @@ public class SymulacjaEtap2 {
         }
     }
 
-    // prosta struktura: aktywo + ilość – nowość w Etapie 2
+    // prosta struktura: aktywo + ilość 
     public record PortfolioPosition(Asset asset, int quantity) {}
 
     // portfel trzyma kasę i aktywa różnego typu (Stock, Bond itd.)
