@@ -154,7 +154,7 @@ public class SymulacjaEtap2 {
         market.add(new Stock("BTC", "Bitcoin", 91000.0));
         market.add(new Stock("ETH", "Ethereum", 1698.0));
         market.add(new Stock("PMS", "ProfesorMiotkSzef", 9999.99));
-        market.add(new Bond("OBL1", "Obligacja Skarbowa 10Y", 1000.0, 0.01));
+        market.add(new Bond("OBL", "Obligacja Skarbowa", 1000.0, 0.01));
 
         // tworzymy portfel z 100k gotówki
         Portfolio portfel = new Portfolio(100000.0);
@@ -174,7 +174,7 @@ public class SymulacjaEtap2 {
         }
 
         // finalny raport portfela
-        System.out.println("\n--- Finalny stan portfela ---");
+        System.out.println("\n Finalny stan portfela ");
         System.out.printf("Gotowka: %.2f PLN\n", portfel.getCash());
         for (PortfolioPosition pos : portfel.getPositions().values()) {
             Asset a = pos.asset();
