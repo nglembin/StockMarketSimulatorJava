@@ -165,7 +165,7 @@ public class SymulacjaEtap2 {
 
         // symulacja zmian cen przez 10 kroków
         for (int i = 1; i <= 10; i++) {
-            System.out.println("\n=== Krok symulacji: " + i + " ===");
+            System.out.println("\n Krok symulacji: " + i + " ");
             for (Asset a : market) {
                 a.updatePrice();
                 System.out.printf("%s (%s): %.2f PLN\n", a.getSymbol(), a.getName(), a.getCurrentPrice());
