@@ -42,7 +42,6 @@ public class Portfolio {
         Tradable tradable = (Tradable) asset;
         double cost = tradable.getCurrentPrice() * quantity;
 
-        double cost = tradable.getCurrentPrice() * quantity;
 
         // sprawdzamy czy mamy wystarczająco gotówki
         if (cash < cost) {
@@ -65,7 +64,7 @@ public class Portfolio {
         }
 
         // sprawdzamy czy mamy wystarczającą ilość sztuk
-        if (quantity > pos.quantity()) {
+        if (quantity > pos.getQuantity()) {
             throw new InsufficientAssetsException("Próbujesz sprzedać więcej niż masz: " + quantity);
         }
 
@@ -91,7 +90,7 @@ public class Portfolio {
         String symbol = asset.getSymbol();
         if (positions.containsKey(symbol)) {
             PortfolioPosition existing = positions.get(symbol);
-            int newQty = existing.quantity() + quantity;
+            int newQty = existing.getQuantity() + quantity;
             positions.put(symbol, new PortfolioPosition(asset, newQty));
         } else {
             positions.put(symbol, new PortfolioPosition(asset, quantity));
@@ -100,9 +99,9 @@ public class Portfolio {
 
     // pomocnicza metoda do zmniejszania lub usuwania pozycji
     private void removeOrUpdatePosition(String symbol, PortfolioPosition pos, int quantityToRemove) {
-        int newQty = pos.quantity() - quantityToRemove;
+        int newQty = pos.getQuantity() - quantityToRemove;
         if (newQty > 0) {
-            positions.put(symbol, new PortfolioPosition(pos.asset(), newQty));
+            positions.put(symbol, new PortfolioPosition(pos.getAsset(), newQty));
         } else {
             positions.remove(symbol);
         }
@@ -112,7 +111,7 @@ public class Portfolio {
     public double calculateAssetsValue() {
         double total = 0.0;
         for (PortfolioPosition pos : positions.values()) {
-            total += pos.asset().getCurrentPrice() * pos.quantity();
+            total += pos.getAsset().getCurrentPrice() * pos.getQuantity();
         }
         return total;
     }

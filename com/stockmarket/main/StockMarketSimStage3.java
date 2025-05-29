@@ -63,9 +63,9 @@ public class StockMarketSimStage3 {
         for (Map.Entry<String, PortfolioPosition> entry : portfel.getPositions().entrySet()) {
             String symbol = entry.getKey();
             PortfolioPosition pos = entry.getValue();
-            double val = pos.asset().getCurrentPrice() * pos.quantity();
+            double val = pos.getAsset().getCurrentPrice() * pos.getQuantity();
             System.out.printf("- %s (%s): %d szt. @ %.2f PLN = %.2f PLN\n",
-                    symbol, pos.asset().getName(), pos.quantity(), pos.asset().getCurrentPrice(), val);
+                    symbol, pos.getAsset().getName(), pos.getQuantity(), pos.getAsset().getCurrentPrice(), val);
         }
         System.out.printf("Wartość aktywów: %.2f PLN\n", portfel.calculateAssetsValue());
         System.out.printf("Całkowita wartość portfela: %.2f PLN\n", portfel.calculateTotalValue());
