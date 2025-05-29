@@ -16,20 +16,20 @@ import java.util.Map;
 
 public class StockMarketSimStage3 {
     public static void main(String[] args) {
-        // Tworzymy aktywa
+        // tworzymy aktywa
         List<Asset> aktywa = new ArrayList<>();
         aktywa.add(new Stock("BTC", "Bitcoin", 91000.0));
         aktywa.add(new Stock("ETH", "Ethereum", 1698.0));
         aktywa.add(new Stock("PMS", "ProfesorMiotkSzef", 9999.99));
         aktywa.add(new Bond("OBL1", "Obligacja Skarbowa 10Y", 1000.0, 0.01));
 
-        // Tworzymy rynek
+        // tworzymy rynek
         Market rynek = new Market(aktywa);
 
-        // Tworzymy portfel z 100k gotówki
+        // tworzymy portfel z 100k kaski
         Portfolio portfel = new Portfolio(100000.0);
 
-        // Zakupy – testujemy buy()
+        // zakupy – testujemy buy()
         try {
             portfel.buy("BTC", 2, rynek);
             portfel.buy("ETH", 10, rynek);
@@ -46,7 +46,7 @@ public class StockMarketSimStage3 {
             System.out.println("Błąd podczas sprzedaży: " + e.getMessage());
         }
 
-        // Symulacja 10 kroków zmian cen
+        // symulacja 10 kroków zmian cen
         for (int i = 1; i <= 10; i++) {
             System.out.println("\n=== Krok symulacji: " + i + " ===");
             rynek.updatePrices();
@@ -57,7 +57,7 @@ public class StockMarketSimStage3 {
             System.out.printf("Wartość portfela: %.2f PLN\n", portfel.calculateTotalValue());
         }
 
-        // Finalny stan portfela
+        // finalny stan portfela
         System.out.println("\n--- Finalny stan portfela ---");
         System.out.printf("Gotówka: %.2f PLN\n", portfel.getCash());
         for (Map.Entry<String, PortfolioPosition> entry : portfel.getPositions().entrySet()) {
