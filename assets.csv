@@ -1,0 +1,5 @@
+symbol,name,type,initial_price
+BTC,Bitcoin,STOCK,80000.00
+ETH,Ethereum,STOCK,1800.00
+PMS,ProfesorMiotkSzef,STOCK,10000.00
+OBL1,Obligacja Skarbowa 10Y,BOND,1000.00
